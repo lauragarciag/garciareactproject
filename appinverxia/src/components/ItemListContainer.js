@@ -1,12 +1,27 @@
-import './ItemListContainer.css'
+import './ItemListContainer.css';
+import { useState, useEffect } from 'react';
+import { getProductsInverxia } from '../asyncMock';
+import ItemList from './ItemList';
 
 const ItemListContainer = ({ greeting }) => {
-    return (
-        <div className='Ilc'>
-        <h1>{greeting}</h1>
+    const [products, setProducts] = useState([])
 
-        </div>
+    useEffect(() => {
+        getProductsInverxia().then(products => {
+            setProducts(products)
+        })
+    }, [])
+
+    const prodsCom = products.map(prod => <li key={prod.id}>{prod.name}</li>)
+    return ( 
+
+        <>
+            <h1 className='Greeting'>{greeting}</h1>
+       
+            <ItemList products={products}/>
+        </>
+
     )
 }
 
-export default ItemListContainer
+export default ItemListContainer;

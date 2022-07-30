@@ -2,22 +2,21 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import ItemListContainer from './components/ItemListContainer';
-import Counter from './components/Counter';
+import ItemCount from './components/ItemCount';
+
+
 
 
 
 function App() {
-  
-  const handleOnAdd = (quantity) => {
-    console.log(`la cantidad agregada es: ${quantity}`)
-  }
-
   return (
     <div className="App">
      
       <Navbar/>
       <ItemListContainer greeting='¡Bienvenidos a Inverxia!'/>
-      <Counter stock={10} onAdd={handleOnAdd}/>
+      <ItemCount/>
+    
+
     </div>
   );
 }

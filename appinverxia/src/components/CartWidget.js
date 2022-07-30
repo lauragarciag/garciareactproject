@@ -4,8 +4,8 @@ const CartWidget = () => {
 
     return (
             <div>
-                <img src='../public/images/shopping-cart.png' alt='CartWidget'/> 
-                3
+                <img className="Cart" src='https://lauragarcia.cl/wp-content/uploads/2022/07/carrito-de-compras.png' alt='CartWidget'/> 
+                15
             </div>
     )
 }

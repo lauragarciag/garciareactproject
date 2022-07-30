@@ -1,14 +1,12 @@
 .Counter {
     display: flex;
     justify-content: center;
-    align-items: center;
     margin-top: 15px;
+    margin-bottom: 15px;
 
 }
 
 .ctrTitle {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-bottom: 60px;
 }

@@ -6,3 +6,10 @@
     color: #1a41ff;
     font-size: 30px;
 }
+
+.Greeting {
+    display: flex;
+    justify-content: space-around;
+    align-items: space-around;
+    
+}
