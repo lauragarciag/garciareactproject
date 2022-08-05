@@ -1,12 +1,23 @@
 .product-card {
-    text-align: center;
+    display: flex;
+    text-align: space-around;
+    justify-content: center;
+    flex-direction: column;
+
   }
   
   .product-card__image {
-    width: 320px;
+    width: 250px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    justify-items: space-around;
   }
   
   .product-card__name {
     font-size: 1.6rem;
+    display: flex;
+    justify-content: left;
+    justify-items: left;
   }
   

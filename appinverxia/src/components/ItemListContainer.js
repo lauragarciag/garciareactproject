@@ -1,27 +1,32 @@
-import './ItemListContainer.css';
-import { useState, useEffect } from 'react';
-import { getProductsInverxia } from '../asyncMock';
-import ItemList from './ItemList';
+import { getProductsInverxia, getProductsByCategory } from '../asyncMock'
+import { useState, useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([])
 
+    const { categoryId } = useParams()
+
     useEffect(() => {
-        getProductsInverxia().then(products => {
-            setProducts(products)
+      if(categoryId) {
+        getProductsByCategory(categoryId).then(response => {
+          setProducts(response)
         })
-    }, [])
+      } else {
+        getProductsInverxia().then(response => {
+          setProducts(response)
+        })
+      } 
+    }, [categoryId])
 
-    const prodsCom = products.map(prod => <li key={prod.id}>{prod.name}</li>)
-    return ( 
-
-        <>
-            <h1 className='Greeting'>{greeting}</h1>
-       
-            <ItemList products={products}/>
-        </>
-
+    return(
+      <>
+        <h1>{greeting}</h1>
+        <div style={{ display: 'flex', flexDirection: 'column'}}>
+          {products.map(prod => <Link to={`/detail/${prod.id}`} key={prod.id}>{prod.name}</Link>)}
+        </div>
+      </>
     )
 }
 
-export default ItemListContainer;
+export default ItemListContainer
