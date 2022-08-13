@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import CartWidget from './CartWidget';
+import { Link, NavLink } from 'react-router-dom'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,11 +9,11 @@ const Navbar = () => {
     <div className="Navbar">
       <span className="nav-logo">Inverxia - Educación Financiera</span>
       <div className={`nav-items ${isOpen && "open"}`}>
-        <a href="/home">Home</a>
+      <NavLink to="/home" className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Home</NavLink>
         <a href="/about">Quién soy</a>
         <a href="/excel">Cursos Excel</a>
         <a href="/finanzas">Cursos Finanzas</a>
-        <a href="/inversion">Cursos Inversion</a>
+        <a href="/inversion">Cursos Inversión</a>
         <a href="/contact">Contacto</a>
       </div>
       <CartWidget />

@@ -1,6 +1,8 @@
-.Cart {
+.CartWidget {
     display: flex;
     justify-items: space-between;
     justify-content: space-between;
-    margin-right: 10px;
+    margin-right: 20px;
+    color: whitesmoke;
+    font-size: 30px;
 }
