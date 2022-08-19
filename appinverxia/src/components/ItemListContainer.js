@@ -1,6 +1,9 @@
-import { getProductsInverxia, getProductsByCategory } from '../asyncMock'
+// import { getProductsInverxia, getProductsByCategory } from '../asyncMock'
 import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import {getDocs, collection} from 'firebase/firestore'
+import {db} from '../services/firebase'
+
 
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([])
@@ -8,15 +11,27 @@ const ItemListContainer = ({ greeting }) => {
     const { categoryId } = useParams()
 
     useEffect(() => {
-      if(categoryId) {
-        getProductsByCategory(categoryId).then(response => {
-          setProducts(response)
-        })
-      } else {
-        getProductsInverxia().then(response => {
-          setProducts(response)
-        })
-      } 
+
+
+
+  getDocs(collection(db, 'products')).then(response => {
+      const productsAdapted = response.docs.map(doc => {
+          const data = doc.data()
+          return { id: doc.id, ...data}
+      })
+      setProducts(productsAdapted)
+    })
+
+
+      // if(categoryId) {
+      //   getProductsByCategory(categoryId).then(response => {
+      //     setProducts(response)
+      //   })
+      // } else {
+      //   getProductsInverxia().then(response => {
+      //     setProducts(response)
+      //   })
+      // } 
     }, [categoryId])
 
     return(
