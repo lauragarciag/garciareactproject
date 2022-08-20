@@ -8,6 +8,8 @@ const Item = ({id, name, img, price}) => {
         console.log('hice click en item')
     }
 
+    console.log(img)
+
     return (
         <article className="CardItem" onClick={handleClick}>
             <header className="Header">
