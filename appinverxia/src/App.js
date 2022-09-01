@@ -1,6 +1,6 @@
-import './App.css';
-import Navbar from './components/Navbar';
-import ItemListContainer from './components/ItemListContainer';
+import './App.css'
+import Navbar from './components/Navbar'
+import ItemListContainer from './components/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { CartContextProvider } from './context/CartContext'
@@ -23,5 +23,7 @@ function App() {
     </div>
   );
 }
+
+console.log("App")
 
 export default App;

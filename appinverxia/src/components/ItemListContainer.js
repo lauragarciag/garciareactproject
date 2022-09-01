@@ -5,10 +5,10 @@ import { useParams } from 'react-router-dom'
 import { db, } from '../services/firebase'
 
 
-
 const ItemListContainer = ({ greeting }) => {
       const { categoryId } = useParams()
-      const getProductsFromFirestore = () => db(categoryId)
+      const getProductosFromFirestore = () => db(categoryId)
+   
 
 
     return(
