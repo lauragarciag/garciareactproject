@@ -9,12 +9,10 @@ const Navbar = () => {
     <div className="Navbar">
       <span className="nav-logo">Inverxia - Educación Financiera</span>
       <div className={`nav-items ${isOpen && "open"}`}>
-      <NavLink to="/home" className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Home</NavLink>
-        <a href="/about">Quién soy</a>
-        <a href="/excel">Cursos Excel</a>
-        <a href="/finanzas">Cursos Finanzas</a>
-        <a href="/inversion">Cursos Inversión</a>
-        <a href="/contact">Contacto</a>
+      <NavLink to="/" className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Home</NavLink>
+      <NavLink to='/category/Inversiones' className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Inversiones</NavLink>
+      <NavLink to='/category/Excel' className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Excel</NavLink>
+      <NavLink to='/category/Finanzas' className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Finanzas</NavLink>
       </div>
       <CartWidget />
       <div
